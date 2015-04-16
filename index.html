@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Dom Selector</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="css/default.css" />
+</head>
+<body>
+    <div class="container-fluid"><!-- FULL WIDTH -->
+        <div class="row">
+            <div class="col-md-9 border no-padding">
+                <div id="url">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" value="http://getbootstrap.com/" class="form-control"
+                                   placeholder="enter url site" id="site-url" onchange="go(this.value)"/>
+                        </div>
+                    </form>
+                </div>
+                <div id="content">
+                    <iframe src="" width="100%" height="100%" scrolling="yes"> </iframe>
+                </div>
+            </div>
+            <div class="col-md-3 ">
+                navigation
+            </div>
+        </div>
+    </div>
+    <script src="js/default.js"></script>
+</body>
+</html>
