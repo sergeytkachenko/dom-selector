@@ -20,18 +20,14 @@ var app = angular.module( "App", [] );
 app.controller(
     "MyController",
     function( $scope , $http, $sce) {
-
         $scope.go = function () {
-            $http.get('/index.php?url='+$scope.url).
-                success(function(data, status, headers, config) {
-                    var html = $sce.trustAsHtml(data);
-                    var head = DomHelper.getHeader(data);
-                    // вставляем html
-                    //$scope.content = html;
-                }).
-                error(function(data, status, headers, config) {
-
-                });
+            if(!$scope.url.match(/.[a-zа-я]{2,}$/)) {return;}
+            $scope.urlIframe = (function () {
+                if($scope.url.match(/^http/)) {
+                    return $scope.url;
+                }
+                return "http://" + $scope.url;
+            })();
         }
     }
 );
