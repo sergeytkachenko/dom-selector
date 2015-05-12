@@ -7,31 +7,22 @@
  * разберать header и body нужно на сервере
  *
  **/
-//
-var DomHelper = {
-    getHeader : function (html) {
-        var parser = new DOMParser(),
-            doc = parser.parseFromString(html, "text/xml");
-        console.log(doc);
-    }
-}
 
-var app = angular.module( "App", [] );
 app.controller(
     "MyController",
     function( $scope , $http, $sce) {
-
         $scope.go = function () {
-            $http.get('/index.php?url='+$scope.url).
-                success(function(data, status, headers, config) {
-                    var html = $sce.trustAsHtml(data);
-                    var head = DomHelper.getHeader(data);
-                    // вставляем html
-                    //$scope.content = html;
-                }).
-                error(function(data, status, headers, config) {
-
-                });
+            var url = $scope.url.match(/^http/)? $scope.url : 'http://'+$scope.url
+            $scope.frameUrl = '/index.php?url=' + url;
         }
     }
 );
+
+document.getElementById('frame').onload = function () { // навешиваем события на frame
+    var $elements = $(this).contents().find('*');
+    $elements.hover(function () {
+        console.log(this)
+    }, function () {
+
+    })
+}

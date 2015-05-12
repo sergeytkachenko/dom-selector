@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/default.css" />
 
     <script src="js/angular.min.js"></script>
+    <script src="js/jquery-1.9.1.min.js"></script>
 </head>
 <body ng-controller="MyController">
     <div class="container-fluid"><!-- FULL WIDTH -->
@@ -16,13 +17,12 @@
                 <div id="url">
                     <form action="javascript:void(0);">
                         <div class="form-group">
-                            <input type="text" value="http://getbootstrap.com/" class="form-control" ng-model="url"
-                                   placeholder="enter url site" id="site-url" ng-change="go()" />
+                            <input type="text" class="form-control" ng-model="url" placeholder="enter url site" id="site-url" value="http://dom.local/" ng-enter="go()" />
                         </div>
                     </form>
                 </div>
-                <div id="content" ng-bind-html="content">
-                    <!--<iframe src="" width="100%" height="100%" scrolling="yes"> </iframe>-->
+                <div id="content" >
+                    <iframe src="{{ frameUrl }}" width="100%" height="100%" scrolling="yes" id="frame"></iframe>
                     <!-- Put this another site content without frame -->
                 </div>
             </div>
@@ -33,6 +33,7 @@
     </div>
 
     <script src="js/default.js"></script>
+    <script src="js/ext/directives.js"></script>
     <script src="js/replacement.js"></script>
 </body>
 </html>

@@ -4,6 +4,10 @@ body, html {
     overflow: hidden;
 }
 
+input[ng-model="url"] {
+    border-right: 0 !important;
+}
+
 .no-padding {
     padding: 0;
 }
