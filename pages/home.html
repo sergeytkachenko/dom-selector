@@ -1,0 +1,29 @@
+<div class="container-fluid"><!-- FULL WIDTH -->
+    <div class="row" >
+        <div class="col-md-9 border no-padding"  ng-controller="frameController">
+            <div id="url">
+                <form action="javascript:void(0);">
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="url" placeholder="{{url}}" id="site-url"  ng-enter="go()" />
+                    </div>
+                </form>
+            </div>
+            <div id="content" >
+                <iframe src="{{ frameUrl }}" width="100%" height="100%" scrolling="yes" id="frame"></iframe>
+                <!-- Put this another site content without frame -->
+            </div>
+        </div>
+        <div class="col-md-3 " ng-controller="navigationController">
+            <form class="form-inline" role="form">
+                <div class="form-group">
+                    <!--<label for="attribute">Атрибут:</label>-->
+                    <select class="form-control" id="attribute" value="attribute" >
+                        <option value="{{ attribute.get('id') }}" ng-repeat="attribute in attributes" disabled="{{ attribute.get('disabled') }}">{{ attribute.get('title') }}</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-default">Применить</button>
+                <button type="submit" class="btn btn-default">Создать атрибут</button>
+            </form>
+        </div>
+    </div>
+</div>

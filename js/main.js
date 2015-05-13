@@ -1,7 +1,7 @@
 // TODO use jade - http://jade-lang.com/
 
 app.controller(
-    "FrameController",
+    "frameController",
     function( $scope , $http, $sce) {
         app.settings.fetch({
             success : function () {
@@ -16,33 +16,37 @@ app.controller(
                 }
             }
         });
+
+        $("iframe").off("load").on("load", function () {
+            var $contents = $(this).contents();
+            $contents.find("head").append('<link rel="stylesheet" href="'+location.origin+'/css/frame.css" />');
+            var $elements = $contents.find('*');
+
+            $elements.find("body").off("click").on("click", function (e) {
+                e.stopPropagation;
+                e.preventDefault();
+
+                Event.click($(documentFrame.elementFromPoint(Event.mouse.x, Event.mouse.y)));
+            });
+
+            var documentFrame = this.contentWindow.document;
+            documentFrame.addEventListener('mousemove', function(e){
+                Event.mouse.x = e.clientX || e.pageX;
+                Event.mouse.y = e.clientY || e.pageY;
+                Event.hover($(documentFrame.elementFromPoint(Event.mouse.x, Event.mouse.y)));
+            }, false);
+        });
     }
 );
 
 app.controller(
-    "NavigationController",
+    "navigationController",
     function( $scope , $http, $sce) {
-        console.log($scope);
+        app.attributes.fetch({
+            'success' : function () {
+                $scope.attributes = app.attributes.models
+            }
+        });
     }
 );
 
-$("iframe").on("load", function () {
-    var $contents = $(this).contents();
-    $contents.find("head").append('<link rel="stylesheet" href="'+location.origin+'/css/frame.css" />');
-    var $elements = $contents.find('*');
-
-    $elements.find("body").off("click").on("click", function (e) {
-        e.stopPropagation;
-        e.preventDefault();
-
-        Event.click($(documentFrame.elementFromPoint(Event.mouse.x, Event.mouse.y)));
-    });
-
-    var documentFrame = this.contentWindow.document;
-    documentFrame.addEventListener('mousemove', function(e){
-        Event.mouse.x = e.clientX || e.pageX;
-        Event.mouse.y = e.clientY || e.pageY;
-        Event.hover($(documentFrame.elementFromPoint(Event.mouse.x, Event.mouse.y)));
-    }, false);
-
-});

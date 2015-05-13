@@ -1,5 +1,4 @@
 Backbone.Collection.prototype.saveAll = function () {
-    console.log('save all')
     _(this.models).each( function(entity) {
         entity.save();
     } );
@@ -22,5 +21,3 @@ app.settings.bind('change add remove', app.settings.saveAll, app.settings);
 
 app.attributes = new app.collection.Attribute();
 app.attributes.bind('change add remove', app.attributes.saveAll, app.attributes);
-
-
