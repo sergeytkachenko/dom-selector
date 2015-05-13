@@ -1,18 +1,28 @@
 // TODO use jade - http://jade-lang.com/
 
 app.controller(
-    "MainController",
+    "FrameController",
     function( $scope , $http, $sce) {
-        $scope.url = app.Setting.get('url');
-        if($scope.url) $scope.frameUrl = '/index.php?url=' + $scope.url;
-        $scope.go = function () {
-            var url = $scope.url.match(/^http/)? $scope.url : 'http://'+$scope.url
-            $scope.frameUrl = '/index.php?url=' + url;
-            app.Setting.set({id : 'setting', 'url': url});
-            app.Setting.save();
-        }
+        app.settings.fetch({
+            success : function () {
+                var model = app.settings.findWhere({key:'url'}) || new app.model.Setting;
+                $scope.url = model.get('value');
+                if($scope.url) $scope.frameUrl = '/index.php?url=' + $scope.url;
+                $scope.go = function () {
+                    var url = $scope.url.match(/^http/)? $scope.url : 'http://'+$scope.url
+                    $scope.frameUrl = '/index.php?url=' + url;
+                    model.set({key : 'url', value : url});
+                    app.settings.add(model);
+                }
+            }
+        });
+    }
+);
 
-        $scope.Attributes = app.Attributes.collect();
+app.controller(
+    "NavigationController",
+    function( $scope , $http, $sce) {
+        console.log($scope);
     }
 );
 
@@ -35,4 +45,4 @@ $("iframe").on("load", function () {
         Event.hover($(documentFrame.elementFromPoint(Event.mouse.x, Event.mouse.y)));
     }, false);
 
-})
+});

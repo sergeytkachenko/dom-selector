@@ -2,7 +2,7 @@ var app = angular.module( "App", [] );
 app.model = {};
 app.collection = {};
 
-app.storage = new Backbone.LocalStorage('app.setting');
+//app.storage = new Backbone.LocalStorage('app.setting');
 
 var Event = {
     mouse : {x: 0, y: 0},

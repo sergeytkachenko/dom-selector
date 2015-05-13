@@ -1,23 +1,26 @@
-app.model.Setting = Backbone.Model.extend({
-    localStorage: app.storage
-});
-app.model.Attribute = Backbone.Model.extend({
-    localStorage: app.storage
+Backbone.Collection.prototype.saveAll = function () {
+    console.log('save all')
+    _(this.models).each( function(entity) {
+        entity.save();
+    } );
+}
+
+app.model.Setting = Backbone.Model.extend();
+app.model.Attribute = Backbone.Model.extend();
+
+app.collection.Settings = Backbone.Collection.extend({
+    model : app.model.Setting,
+    localStorage : new Backbone.LocalStorage('collection.Settings')
 });
 app.collection.Attribute = Backbone.Collection.extend({
     model : app.model.Attribute,
-    localStorage: app.storage
+    localStorage : new Backbone.LocalStorage('collection.Attribute')
 });
 
-app.Setting = new app.model.Setting({id: "setting"});
-app.Setting.fetch();
+app.settings = new app.collection.Settings();
+app.settings.bind('change add remove', app.settings.saveAll, app.settings);
 
-app.Attributes = new app.collection.Attribute();
+app.attributes = new app.collection.Attribute();
+app.attributes.bind('change add remove', app.attributes.saveAll, app.attributes);
 
-app.Attributes.add([
-    {
-        id : 1,
-        title : 'Цена',
-         disabled : false
-    },
-]);
+

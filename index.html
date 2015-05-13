@@ -12,12 +12,12 @@
 
     <script src="js/underscore-min.js"></script>
     <script src="js/backbone.js"></script>
-    <script src="js/ext/store.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.16/backbone.localStorage-min.js"></script>
 </head>
-<body ng-controller="MainController">
+<body>
     <div class="container-fluid"><!-- FULL WIDTH -->
         <div class="row" >
-            <div class="col-md-9 border no-padding">
+            <div class="col-md-9 border no-padding"  ng-controller="FrameController">
                 <div id="url">
                     <form action="javascript:void(0);">
                         <div class="form-group">
@@ -30,7 +30,7 @@
                     <!-- Put this another site content without frame -->
                 </div>
             </div>
-            <div class="col-md-3 ">
+            <div class="col-md-3 " ng-controller="NavigationController">
                 <form class="form-inline" role="form">
                     <div class="form-group">
                         <!--<label for="attribute">Атрибут:</label>-->

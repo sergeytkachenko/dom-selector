@@ -12,6 +12,7 @@ Backbone.LocalStorage = function(name) {
 
 _.extend(Backbone.LocalStorage.prototype, {
     save: function() {
+        console.log(this.name, JSON.stringify(this.data));
         localStorage.setItem(this.name, JSON.stringify(this.data));
     },
     create: function(model) {
@@ -26,9 +27,11 @@ _.extend(Backbone.LocalStorage.prototype, {
         return model;
     },
     find: function(model) {
+        console.log(this.name, JSON.stringify(this.data));
         return this.data[model.id];
     },
     findAll: function() {
+        console.log(this.name, JSON.stringify(this.data));
         return _.values(this.data);
     },
     destroy: function(model) {
