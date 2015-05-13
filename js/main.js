@@ -1,4 +1,5 @@
 // TODO use jade - http://jade-lang.com/
+// TODO replace relative path to absolute in php file
 
 app.controller(
     "frameController",
@@ -20,6 +21,7 @@ app.controller(
         $("iframe").off("load").on("load", function () {
             var $contents = $(this).contents();
             $contents.find("head").append('<link rel="stylesheet" href="'+location.origin+'/css/frame.css" />');
+            $contents.find("head").append('<base href="'+$scope.url+'" target="_blank">');
             var $elements = $contents.find('*');
 
             $elements.find("body").off("click").on("click", function (e) {
