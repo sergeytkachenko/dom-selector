@@ -9,15 +9,19 @@
 
     <script src="js/angular.min.js"></script>
     <script src="js/jquery-1.9.1.min.js"></script>
+
+    <script src="js/underscore-min.js"></script>
+    <script src="js/backbone.js"></script>
+    <script src="js/ext/store.js"></script>
 </head>
-<body ng-controller="MyController">
+<body ng-controller="MainController">
     <div class="container-fluid"><!-- FULL WIDTH -->
         <div class="row" >
             <div class="col-md-9 border no-padding">
                 <div id="url">
                     <form action="javascript:void(0);">
                         <div class="form-group">
-                            <input type="text" class="form-control" ng-model="url" placeholder="enter url site" id="site-url" value="http://dom.local/" ng-enter="go()" />
+                            <input type="text" class="form-control" ng-model="url" placeholder="{{url}}" id="site-url"  ng-enter="go()" />
                         </div>
                     </form>
                 </div>
@@ -27,13 +31,23 @@
                 </div>
             </div>
             <div class="col-md-3 ">
-                navigation
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <!--<label for="attribute">Атрибут:</label>-->
+                        <select class="form-control" id="attribute" value="attribute" >
+                            <option value="{{ attr.get('id') }}" ng-repeat="attr in Attributes" disabled="{{ attr.get('disabled') }}">{{ attr.get('title') }}</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-default">Применить</button>
+                    <button type="submit" class="btn btn-default">Создать атрибут</button>
+                </form>
             </div>
         </div>
     </div>
 
     <script src="js/default.js"></script>
     <script src="js/ext/directives.js"></script>
+    <script src="js/models.js"></script>
 
     <script src="js/main.js"></script>
 </body>

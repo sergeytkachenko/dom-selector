@@ -1,3 +1,2 @@
 RewriteEngine On
-
-RewriteRule ^/site/([0-9a-zа-я-_./:]+)$ index.php?url=$1 [P,L]
+RewriteRule ^/site/([0-9a-z-_./:]+)$ index.php?url=$1 [P,L]

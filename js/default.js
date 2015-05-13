@@ -1,11 +1,18 @@
 var app = angular.module( "App", [] );
+app.model = {};
+app.collection = {};
 
-var DomHelper = {
-    getHeader : function (html) {
-        var parser = new DOMParser(),
-            doc = parser.parseFromString(html, "text/xml");
-        console.log(doc);
+app.storage = new Backbone.LocalStorage('app.setting');
+
+var Event = {
+    mouse : {x: 0, y: 0},
+    hover : function ($el) {
+        $el.parents("body").find("*").removeClass("hover");
+        $el.addClass("hover");
+    },
+
+    click : function ($el) {
+        $el.toggleClass("click");
     }
 }
-
 

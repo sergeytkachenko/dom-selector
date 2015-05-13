@@ -1,0 +1,9 @@
+body > *  *.hover {
+    background-color: #333 !important;
+    color: #fff !important;
+}
+
+body > * *.click {
+    background-color: #5cb85c !important;
+    color : red !important;
+}
