@@ -1,0 +1,111 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
+
+.em06 {
+  font-size: 0.7em;
+}
+
+body, html, body > div {
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  font-family: 'PT Sans', sans-serif;
+}
+
+input[ng-model="url"] {
+  border-right: 0 !important;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.container-fluid, .container-fluid > .row, .container-fluid > .row > div, #content {
+  min-height: 100%;
+  height: 100%;
+}
+
+.border {
+  border: 1px solid #ddd;
+}
+
+iframe {
+  border: 0;
+  overflow: hidden;
+}
+
+iframe body {
+
+}
+
+.form-control {
+  border-radius: 0;
+}
+
+.right-sidebar {
+  background: #F1F3FA;
+}
+
+[ui-view="sidebar"] {
+  color: #888;
+}
+
+nav {
+  height: 35px;
+  background: #364150;
+  color: #dfdfdf;
+  box-sizing: border-box;
+  padding: 0 20px;
+  line-height: 34px;
+  border-bottom: 1px solid #CCC;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      float: left;
+      margin-right: 10px;
+
+      a, a:visited {
+        color: #ccc;
+      }
+
+      a:hover{
+        color: #ddd;
+        text-decoration: none;
+      }
+
+      a.active {
+        color: #fff !important;
+      }
+    }
+  }
+
+}
+
+div.frame-type-control {
+  position: relative;
+
+  div{
+    position: absolute;
+    right: 0;
+    top: -1px;
+    width : 138px;
+    height: 100%;
+    background: #364150;
+    color: #ddd;
+    font-weight: 400;
+    line-height: 34px;
+    font-size: .9em;
+
+    input {
+      margin: 10px;
+    }
+  }
+}
+
+/* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+   all your sass files automatically */
+// injector
+// endinjector

@@ -1,0 +1,51 @@
+<div class="col-md-12">
+    <div class="portlet light">
+        <div class="portlet-title tabbable-line">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">{{attr.name || 'Новый атрибут'}}</span>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <form class="form-horizontal">
+                <fieldset>
+
+                    <div class="control-group col-sm-12">
+                        <label class="control-label  col-sm-2" for="attribute-type">Тип</label>
+                        <div class="controls  col-sm-10">
+                            <select id="attribute-type" name="attribute-type" class="form-control"  ng-model="selectedOption" ng-options="attrType.title for attrType in attrTypeList">
+                                <option disabled value="">Выберите тип</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="control-group col-sm-12">
+                        <label class="control-label col-sm-2" for="attribute">Название</label>
+                        <div class="controls col-sm-10">
+                            <input id="attribute" name="attribute" type="text" placeholder="Введите название" class="form-control" required ng-model="attr.name" >
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="control-group col-sm-12">
+                        <label class="control-label  col-sm-2" for="attribute-alias">Alias</label>
+                        <div class="controls col-sm-10">
+                            <input id="attribute-alias" name="attribute-alias" type="text" placeholder="Название на английском" class="form-control" required  ng-model="attr.alias" >
+                            <p class="help-block"><small>необходимо для БД</small></p>
+                        </div>
+                    </div>
+
+
+                    <!-- Button -->
+                    <div class="control-group col-sm-12">
+                        <label class="control-label  col-sm-2" ></label>
+                        <div class="controls col-sm-10">
+                            <a class="btn btn-default" ui-sref="root.list" role="btn">Отмена</a>
+                            <button id="save" name="save" class="btn btn-primary">Сохранить</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>

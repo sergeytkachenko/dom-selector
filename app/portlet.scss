@@ -1,0 +1,61 @@
+.portlet {
+
+  background: #fff;
+  padding: 15px 20px;
+
+  margin-top: 15px;
+
+  .portlet-title {
+    overflow: hidden;
+    font-size: 15px;
+    border-bottom: 1px solid #EEE;
+    min-height: 38px;
+    margin-bottom: 10px;
+    line-height: 30px;
+
+    .caption {
+      float: left;
+    }
+
+    .actions {
+      float: right;
+      display: inline-block;
+    }
+  }
+
+  td, th {
+    vertical-align: middle !important;
+  }
+
+  .portlet-body {
+    form.form-horizontal {
+      .control-group, .control-label {
+        padding-left: 0;
+      }
+
+      .control-group {
+        margin-bottom: 7px;
+
+        .controls {
+
+          input {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.font-blue-madison {
+  color: #578EBE !important;
+}
+
+.uppercase {
+  text-transform: uppercase !important;
+}
+
+.bold {
+  font-weight: 700 !important;
+}
