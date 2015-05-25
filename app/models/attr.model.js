@@ -1,7 +1,6 @@
 class AttrModel extends Backbone.Model {
-	constructor () {
-		super();
-
+	getType () {
+		return 'type';
 	}
 }
 export default AttrModel;

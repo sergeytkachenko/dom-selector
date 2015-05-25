@@ -8,7 +8,12 @@ class ListCtrl {
 		this.$scope = $scope;
 
 		this.$scope.attrList = attrCollection;
-		console.log(this.$scope.attrList);
+		this.$scope.attrList.fetch({
+			reset: true,
+			success : (models) => {
+				
+			}
+		});
     }
 }
 

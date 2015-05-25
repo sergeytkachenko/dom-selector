@@ -25,16 +25,15 @@
                 <tr ng-repeat="attr in attrList.models">
                     <td class="highlight">
                         <div class="success">
-                            {{ attr.get('id') }}
                         </div>
                         <a href="javascript:;">
                             {{attr.get('name')}} </a>
                     </td>
                     <td class="em06">
-                        Mike Nilson
+                        {{attr.get('selector')}}
                     </td>
                     <td>
-                        img
+                        {{attr.getType()}}
                     </td>
                     <td>
                         <a ui-sref="root.attr.edit({id:attr.get('id')})" class="btn default btn-xs purple">
