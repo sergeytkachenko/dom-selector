@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="portlet-body">
-            <form class="form-horizontal">
+            <form class="form-horizontal" name="myform" novalidate>
                 <fieldset>
 
                     <div class="control-group col-sm-12">
@@ -21,7 +21,7 @@
                     <div class="control-group col-sm-12">
                         <label class="control-label col-sm-2" for="attribute">Название</label>
                         <div class="controls col-sm-10">
-                            <input id="attribute" name="attribute" type="text" placeholder="Введите название" class="form-control" required ng-model="attr.name" >
+                            <input id="attribute" name="attribute" type="text" placeholder="Введите название" class="form-control" required ng-model="attr.attributes.name" >
                         </div>
                     </div>
 
@@ -29,18 +29,17 @@
                     <div class="control-group col-sm-12">
                         <label class="control-label  col-sm-2" for="attribute-alias">Alias</label>
                         <div class="controls col-sm-10">
-                            <input id="attribute-alias" name="attribute-alias" type="text" placeholder="Название на английском" class="form-control" required  ng-model="attr.alias" >
+                            <input id="attribute-alias" name="attribute-alias" type="text" placeholder="Название на английском" class="form-control" required  ng-model="attr.attributes.alias" >
                             <p class="help-block"><small>необходимо для БД</small></p>
                         </div>
                     </div>
 
-
                     <!-- Button -->
                     <div class="control-group col-sm-12">
                         <label class="control-label  col-sm-2" ></label>
-                        <div class="controls col-sm-10">
+                        <div class="controls col-sm-10" >
                             <a class="btn btn-default" ui-sref="root.list" role="btn">Отмена</a>
-                            <button id="save" name="save" class="btn btn-primary">Сохранить</button>
+                            <button class="btn btn-primary" ng-click="save()">Сохранить</button>
                         </div>
                     </div>
                 </fieldset>

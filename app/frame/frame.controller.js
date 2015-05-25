@@ -1,5 +1,6 @@
 'use strict';
 
+
 class FrameCtrl {
 
 	constructor ($scope) {
@@ -9,7 +10,6 @@ class FrameCtrl {
 	}
 
 	go () {
-
 		if(!this.url) return;
 		this.url = this.url.match(/^http/)? this.url : 'http://'+this.url
 		this.frameUrl = this.smartFrame? '/index.php?url=' + this.url : this.url;

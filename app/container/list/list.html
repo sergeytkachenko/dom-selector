@@ -22,13 +22,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                <tr>
-
+                <tr ng-repeat="attr in attrList.models">
                     <td class="highlight">
                         <div class="success">
+                            {{ attr.get('id') }}
                         </div>
                         <a href="javascript:;">
-                            RedBull </a>
+                            {{attr.get('name')}} </a>
                     </td>
                     <td class="em06">
                         Mike Nilson
@@ -37,30 +37,7 @@
                         img
                     </td>
                     <td>
-                        <a ui-sref="root.attr.edit({id:12})" class="btn default btn-xs purple">
-                            <i class="fa fa-edit"></i>  </a>
-                    </td>
-                    <td>
-                        <a href="javascript:;" class="btn default btn-xs black">
-                            <i class="fa fa-trash-o"></i>  </a>
-                    </td>
-                </tr>
-                <tr>
-
-                    <td class="highlight">
-                        <div class="info">
-                        </div>
-                        <a href="javascript:;">
-                            Google </a>
-                    </td>
-                    <td class="em06">
-                        Adam Larson
-                    </td>
-                    <td>
-                        txt
-                    </td>
-                    <td>
-                        <a ui-sref="root.attr.edit({id:10})" class="btn default btn-xs purple">
+                        <a ui-sref="root.attr.edit({id:attr.get('id')})" class="btn default btn-xs purple">
                             <i class="fa fa-edit"></i>  </a>
                     </td>
                     <td>
