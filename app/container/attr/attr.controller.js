@@ -27,11 +27,11 @@ class AttrCtrl {
 			this.$scope.selectedOption = this.$scope.attrTypeList[0];
 		});
 
-		this.$scope.attrList.fetch({reset : true}); // what is reset:true
+		this.$scope.attrList.fetch({reset : true}); // reset all models if that been created, changed, removed
 		this.$scope.save = this.save;
     }
 
-	save (that) {
+	save () {
 		this.attrList.push(this.attr);
 		this.attrList.each(function (model) {
 			model.save();
