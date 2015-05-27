@@ -37,7 +37,7 @@ class AttrCtrl {
 			model.save();
 		});
 		
-		this.$state.go("root.list");
+		this.$state.go("root.attr.list");
 	}
 
 	add () {

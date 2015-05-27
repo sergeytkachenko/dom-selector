@@ -28,8 +28,12 @@ angular.module('app', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRes
 				}
 			})
 
-			.state('root.list', {
-				url: '/',
+			.state('root.attr', {
+				abstract: true
+			})
+
+			.state('root.attr.list', {
+				url: '/attr/list',
 				views: {
 					'container@': {
 						templateUrl: 'app/container/list/list.html',
@@ -38,18 +42,8 @@ angular.module('app', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRes
 				}
 			})
 
-			.state('root.attr', {
-				url: '/attr',
-				views: {
-					'container@': {
-						templateUrl: 'app/container/attr/add.html',
-						controller: 'AttrCtrl'
-					}
-				}
-			})
-
 			.state('root.attr.add', {
-				url: '/add',
+				url: '/attr/add',
 				views: {
 					'container@': {
 						templateUrl: 'app/container/attr/add.html',
@@ -59,7 +53,7 @@ angular.module('app', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRes
 			})
 
 			.state('root.attr.edit', {
-				url: '/edit/:id',
+				url: '/attr/edit/:id',
 				views: {
 					'container@': {
 						templateUrl: 'app/container/attr/add.html',
@@ -69,7 +63,7 @@ angular.module('app', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRes
 			})
 
 			.state('root.attr.remove', {
-				url: '/remove/:id',
+				url: '/attr/remove/:id',
 				views: {
 					'container@': {
 						templateUrl: 'app/container/attr/remove.html',
@@ -78,7 +72,7 @@ angular.module('app', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRes
 				}
 			});
 
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/attr/list');
     })
 
 	.directive('ngEnter', function () { // создаем свою директиву ng-enter
