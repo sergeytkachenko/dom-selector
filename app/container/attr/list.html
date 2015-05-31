@@ -15,8 +15,8 @@
                     <tr role="row">
 
                         <th>Название</th>
-                        <th>Селектор</th>
                         <th>Тип</th>
+                        <th>Множ.</th>
                         <th width="25"></th>
                         <th width="25"></th>
                     </tr>
@@ -29,18 +29,18 @@
                         <a href="javascript:;">
                             {{attr.get('name')}} </a>
                     </td>
-                    <td class="em06">
-                        {{attr.get('selector')}}
-                    </td>
                     <td>
                         {{attr.getType()}}
+                    </td>
+                    <td>
+                        <i class="{{attr.isManyCls()}}"></i>
                     </td>
                     <td>
                         <a ui-sref="root.attr.edit({id:attr.get('id')})" class="btn default btn-xs purple">
                             <i class="fa fa-edit"></i>  </a>
                     </td>
                     <td>
-                        <a href="javascript:;" class="btn default btn-xs black">
+                        <a href="javascript:;" class="btn default btn-xs black" ng-click="remove(attr.get('id'))">
                             <i class="fa fa-trash-o"></i>  </a>
                     </td>
                 </tr>

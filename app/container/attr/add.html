@@ -8,11 +8,19 @@
         <div class="portlet-body">
             <form class="form-horizontal" name="myform" novalidate>
                 <fieldset>
-
+                    <div class="control-group col-sm-12">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="attr.attributes.isMany" > Множественный
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                     <div class="control-group col-sm-12">
                         <label class="control-label  col-sm-2" for="attribute-type">Тип</label>
                         <div class="controls  col-sm-10">
-                            <select id="attribute-type" name="attribute-type" class="form-control"  ng-model="selectedOption" ng-options="attrType.title for attrType in attrTypeList">
+                            <select id="attribute-type" name="attribute-type" class="form-control"  ng-model="attr.attributes.type" ng-options="attrType.title for attrType in attrTypeList">
                                 <option disabled value="">Выберите тип</option>
                             </select>
                         </div>
@@ -33,6 +41,7 @@
                             <p class="help-block"><small>необходимо для БД</small></p>
                         </div>
                     </div>
+
 
                     <!-- Button -->
                     <div class="control-group col-sm-12">

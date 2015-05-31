@@ -1,0 +1,40 @@
+<div class="col-md-12">
+    <div class="portlet light">
+        <div class="portlet-title tabbable-line">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">{{model.name || 'Новый проэкт'}}</span>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <form class="form-horizontal" name="myform" novalidate>
+                <fieldset>
+
+                    <div class="control-group col-sm-12">
+                        <label class="control-label col-sm-2">Название</label>
+                        <div class="controls col-sm-10">
+                            <input type="text" placeholder="Введите название" class="form-control" required ng-model="model.attributes.name" >
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="control-group col-sm-12">
+                        <label class="control-label  col-sm-2">Краткое описание</label>
+                        <div class="controls col-sm-10">
+                            <textarea ng-model="model.attributes.description" placeholder="Краткое описание" class="form-control"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Button -->
+                    <div class="control-group col-sm-12">
+                        <label class="control-label  col-sm-2" ></label>
+                        <div class="controls col-sm-10" >
+                            <a class="btn btn-default" ui-sref="root.project.list" role="btn">Отмена</a>
+                            <button class="btn btn-primary" ng-click="save()">Сохранить</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>

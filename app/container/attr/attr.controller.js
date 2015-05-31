@@ -14,17 +14,28 @@ class AttrCtrl {
 			this.$scope.attrTypeList = [
 				{
 					id: 1,
-					'title' : 'Аттрибут 1'
+					'title' : 'Text'
 				},{
 					id: 2,
-					'title' : 'Аттрибут 2'
+					'title' : 'Image'
 				},{
 					id: 3,
-					'title' : 'Аттрибут 3'
+					'title' : 'Integer'
+				},{
+					id: 4,
+					'title' : 'Double'
+				},{
+					id: 5,
+					'title' : 'Boolean'
+				},{
+					id: 6,
+					'title' : 'Date'
 				}
 			];
+
 			// TODO написать директиву для автоматического выбора selected
-			this.$scope.selectedOption = this.$scope.attrTypeList[0];
+			let type = _.findWhere(this.$scope.attrTypeList, this.$scope.attr.attributes.type);
+			this.$scope.attr.attributes.type = this.$scope.attrTypeList[type.id-1];
 		});
 
 		this.$scope.attrList.fetch({reset : true}); // reset all models if that been created, changed, removed

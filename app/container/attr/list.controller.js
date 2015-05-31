@@ -3,9 +3,10 @@
 import attrCollection from '../../models/attr.collection.js';
 import AttrModel from '../../models/attr.model.js';
 
-class ListCtrl {
+class AttrListCtrl {
     constructor ($scope) {
 		this.$scope = $scope;
+		this.$scope.remove = this.remove;
 
 		this.$scope.attrList = attrCollection;
 		this.$scope.attrList.fetch({
@@ -15,7 +16,13 @@ class ListCtrl {
 			}
 		});
     }
+
+	remove (id) {
+		let model = this.attrList.get(id);
+		if(!model) return;
+		model.destroy()
+	}
 }
 
-ListCtrl.$inject = ['$scope'];
-export default ListCtrl;
+AttrListCtrl.$inject = ['$scope'];
+export default AttrListCtrl;
